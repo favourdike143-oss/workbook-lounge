@@ -31,9 +31,10 @@ function HomePage() {
   const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
     const startX = touchStartX.current;
     touchStartX.current = null;
-    if (startX === null) return;
+    const changedTouch = event.changedTouches.item(0);
+    if (startX === null || !changedTouch) return;
 
-    const distance = startX - event.changedTouches[0].clientX;
+    const distance = startX - changedTouch.clientX;
     if (Math.abs(distance) < 45) return;
     if (distance > 0) showNext();
     else showPrevious();
@@ -63,7 +64,7 @@ function HomePage() {
           <div className="rise-in mx-auto w-full max-w-[360px] [animation-delay:160ms]" aria-roledescription="carousel" aria-label="Workbook releases">
             <div
               className="relative h-[370px] touch-pan-y overflow-hidden border border-gold/20 bg-charcoal/70 sm:h-[400px]"
-              onTouchStart={(event) => { touchStartX.current = event.touches[0].clientX; }}
+              onTouchStart={(event) => { touchStartX.current = event.touches.item(0)?.clientX ?? null; }}
               onTouchEnd={handleTouchEnd}
             >
               <div
