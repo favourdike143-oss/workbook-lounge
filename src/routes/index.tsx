@@ -1,9 +1,11 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, BookOpen, Download } from "lucide-react";
+import { useRef, useState } from "react";
+import { ArrowRight, BookOpen, ChevronLeft, ChevronRight, Download } from "lucide-react";
 
 import logoAsset from "@/assets/tube-audiobooks-logo.png.asset.json";
 import workbookCover from "@/assets/emotional-regulation-workbook-cover.png";
 import workbookAsset from "@/assets/emotional-regulation-workbook.pdf.asset.json";
+import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -20,6 +22,24 @@ export const Route = createFileRoute("/")({
 });
 
 function HomePage() {
+  const [activeSlide, setActiveSlide] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+
+  const showPrevious = () => setActiveSlide((current) => Math.max(0, current - 1));
+  const showNext = () => setActiveSlide((current) => Math.min(1, current + 1));
+
+  const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
+    const startX = touchStartX.current;
+    touchStartX.current = null;
+    const changedTouch = event.changedTouches.item(0);
+    if (startX === null || !changedTouch) return;
+
+    const distance = startX - changedTouch.clientX;
+    if (Math.abs(distance) < 45) return;
+    if (distance > 0) showNext();
+    else showPrevious();
+  };
+
   return (
     <main className="library-grain min-h-screen overflow-hidden bg-onyx">
       <section className="relative flex min-h-[88vh] items-center border-b border-gold/15 px-6 py-28">
@@ -41,12 +61,49 @@ function HomePage() {
             </div>
           </div>
 
-          <div className="rise-in relative mx-auto w-full max-w-[410px] [animation-delay:160ms]">
-            <div className="absolute -inset-5 border border-gold/15" aria-hidden="true" />
-            <img src={workbookCover} alt="A Guide to Emotional Regulation companion workbook cover" className="relative aspect-[3/4] w-full object-cover shadow-[0_26px_75px_oklch(0_0_0/0.55)]" />
-            <div className="absolute -bottom-5 -right-5 border border-gold/25 bg-charcoal px-5 py-4 shadow-xl">
-              <span className="block text-[10px] uppercase tracking-[0.24em] text-muted-foreground">Current release</span>
-              <span className="mt-1 flex items-center gap-2 font-display text-sm text-gold"><BookOpen className="size-4" /> Available now</span>
+          <div className="rise-in mx-auto w-full max-w-[360px] [animation-delay:160ms]" aria-roledescription="carousel" aria-label="Workbook releases">
+            <div
+              className="relative h-[370px] touch-pan-y overflow-hidden border border-gold/20 bg-charcoal/70 sm:h-[400px]"
+              onTouchStart={(event) => { touchStartX.current = event.touches.item(0)?.clientX ?? null; }}
+              onTouchEnd={handleTouchEnd}
+            >
+              <div
+                className="flex h-full transition-transform duration-500 ease-out motion-reduce:transition-none"
+                style={{ transform: `translateX(-${activeSlide * 100}%)` }}
+              >
+                <article className="flex h-full w-full shrink-0 flex-col items-center justify-center px-7 py-6" aria-hidden={activeSlide !== 0}>
+                  <p className="mb-4 font-display text-[10px] uppercase tracking-[0.22em] text-gold">Current release</p>
+                  <img src={workbookCover} alt="A Guide to Emotional Regulation companion workbook cover" className="aspect-[3/4] w-[168px] object-cover shadow-[0_18px_45px_oklch(0_0_0/0.48)] sm:w-[185px]" />
+                  <p className="mt-5 flex items-center gap-2 font-display text-xs text-parchment"><BookOpen className="size-4 text-gold" aria-hidden="true" /> Available now</p>
+                </article>
+
+                <article className="flex h-full w-full shrink-0 flex-col justify-center px-8 py-8" aria-hidden={activeSlide !== 1}>
+                  <p className="font-display text-[10px] uppercase tracking-[0.22em] text-gold">Next release</p>
+                  <h2 className="mt-4 font-display text-2xl leading-snug text-parchment">The next companion workbook</h2>
+                  <p className="mt-3 text-sm leading-6 text-muted-foreground">A new guided workbook is currently taking shape.</p>
+                  <div className="mt-9 flex items-end justify-between gap-4">
+                    <span className="text-xs font-semibold uppercase tracking-[0.18em] text-parchment">Planning</span>
+                    <span className="font-display text-3xl text-gold">20%</span>
+                  </div>
+                  <div className="mt-3 h-1.5 overflow-hidden bg-muted" role="progressbar" aria-label="Next workbook progress: planning stage" aria-valuemin={0} aria-valuemax={100} aria-valuenow={20}>
+                    <div className="h-full w-1/5 bg-primary" />
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <div className="mt-4 grid grid-cols-[auto_1fr_auto] items-center gap-4">
+              <Button type="button" variant="outline" size="icon" className="size-10 rounded-full border-gold/25 bg-transparent text-gold hover:bg-secondary" onClick={showPrevious} disabled={activeSlide === 0} aria-label="Previous slide">
+                <ChevronLeft aria-hidden="true" />
+              </Button>
+              <div className="flex justify-center gap-2" role="group" aria-label="Choose slide">
+                {[0, 1].map((slide) => (
+                  <Button key={slide} type="button" size="icon" className={`size-2 rounded-full p-0 ${activeSlide === slide ? "bg-primary" : "bg-muted hover:bg-gold-muted"}`} onClick={() => setActiveSlide(slide)} aria-label={`Go to slide ${slide + 1}`} aria-current={activeSlide === slide ? "true" : undefined} />
+                ))}
+              </div>
+              <Button type="button" variant="outline" size="icon" className="size-10 rounded-full border-gold/25 bg-transparent text-gold hover:bg-secondary" onClick={showNext} disabled={activeSlide === 1} aria-label="Next slide">
+                <ChevronRight aria-hidden="true" />
+              </Button>
             </div>
           </div>
         </div>
