@@ -2,10 +2,11 @@ import { Link, createFileRoute } from "@tanstack/react-router";
 import { useRef, useState } from "react";
 import { ArrowRight, BookOpen, ChevronLeft, ChevronRight, Download } from "lucide-react";
 
-import logoAsset from "@/assets/tube-audiobooks-logo.png.asset.json";
 import workbookCover from "@/assets/emotional-regulation-workbook-cover.png";
-import workbookAsset from "@/assets/emotional-regulation-workbook.pdf.asset.json";
 import { Button } from "@/components/ui/button";
+
+const logoUrl = "/tube-audiobooks-logo.png";
+const workbookUrl = "/emotional-regulation-workbook.pdf";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -45,7 +46,7 @@ function HomePage() {
       <section className="relative flex min-h-[88vh] items-center border-b border-gold/15 px-6 py-28">
         <div className="mx-auto grid w-full max-w-6xl items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="rise-in text-center lg:text-left">
-            <img src={logoAsset.url} alt="Tube Audiobooks" className="mx-auto mb-7 size-28 rounded-full border border-gold/35 object-cover p-1 lg:mx-0" />
+            <img src={logoUrl} alt="Tube Audiobooks" className="mx-auto mb-7 size-28 rounded-full border border-gold/35 object-cover p-1 lg:mx-0" />
             <p className="mb-5 font-display text-xs uppercase tracking-[0.28em] text-gold">The companion library</p>
             <h1 className="font-display text-5xl leading-[1.05] text-gold sm:text-6xl lg:text-7xl">Listen deeply.<br /><span className="text-parchment">Reflect fully.</span></h1>
             <p className="mx-auto mt-7 max-w-xl text-base leading-8 text-muted-foreground lg:mx-0 lg:text-lg">
@@ -55,7 +56,7 @@ function HomePage() {
               <Link to="/workbooks" className="inline-flex h-13 items-center justify-center gap-3 rounded-sm bg-primary px-7 font-display text-xs font-bold uppercase tracking-[0.16em] text-primary-foreground transition-colors hover:bg-gold-muted focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring">
                 Enter the library <ArrowRight className="size-4" aria-hidden="true" />
               </Link>
-              <a href={workbookAsset.url} download className="inline-flex h-13 items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground transition-colors hover:text-gold">
+              <a href={workbookUrl} download className="inline-flex h-13 items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground transition-colors hover:text-gold">
                 <Download className="size-4" aria-hidden="true" /> Download latest
               </a>
             </div>
