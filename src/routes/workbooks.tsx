@@ -1,9 +1,10 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { ArrowLeft, Download, FileText } from "lucide-react";
 
-import logoAsset from "@/assets/tube-audiobooks-logo.png.asset.json";
 import workbookCover from "@/assets/emotional-regulation-workbook-cover.png";
-import workbookAsset from "@/assets/emotional-regulation-workbook.pdf.asset.json";
+
+const logoUrl = "/tube-audiobooks-logo.png";
+const workbookUrl = "/emotional-regulation-workbook.pdf";
 
 export const Route = createFileRoute("/workbooks")({
   head: () => ({
@@ -25,7 +26,7 @@ function WorkbooksPage() {
       <header className="border-b border-gold/15 px-6">
         <div className="mx-auto flex h-20 max-w-6xl items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
-            <img src={logoAsset.url} alt="" className="size-11 rounded-full border border-gold/30 object-cover" />
+            <img src={logoUrl} alt="" className="size-11 rounded-full border border-gold/30 object-cover" />
             <span className="font-display text-sm tracking-[0.08em] text-gold sm:text-base">Tube Audiobooks</span>
           </Link>
           <Link to="/" className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:text-gold">
@@ -56,7 +57,7 @@ function WorkbooksPage() {
               <p className="mt-7 max-w-2xl text-base leading-8 text-muted-foreground">
                 Work through five ancient practices—the Stoic View from Above, Pratipaksha Bhavana, Naikan Reflection, Chöd Visualization, and Premeditatio Malorum—with guided prompts and practice trackers.
               </p>
-              <a href={workbookAsset.url} download="A-Guide-to-Emotional-Regulation-Workbook.pdf" className="mt-9 inline-flex h-13 w-fit items-center justify-center gap-3 rounded-sm bg-primary px-7 font-display text-xs font-bold uppercase tracking-[0.16em] text-primary-foreground transition-colors hover:bg-gold-muted focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring">
+              <a href={workbookUrl} download="A-Guide-to-Emotional-Regulation-Workbook.pdf" className="mt-9 inline-flex h-13 w-fit items-center justify-center gap-3 rounded-sm bg-primary px-7 font-display text-xs font-bold uppercase tracking-[0.16em] text-primary-foreground transition-colors hover:bg-gold-muted focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring">
                 <Download className="size-4" aria-hidden="true" /> Download workbook
               </a>
             </div>
