@@ -35,18 +35,18 @@ function WorkbooksPage() {
         </div>
       </header>
 
-      <section className="px-6 py-16 sm:py-24">
+      <section className="px-6 py-12 sm:py-24">
         <div className="mx-auto max-w-6xl">
           <div className="rise-in flex flex-col justify-between gap-6 border-b border-gold/20 pb-10 md:flex-row md:items-end">
             <div>
               <p className="mb-3 font-display text-xs uppercase tracking-[0.26em] text-gold">The collection</p>
-              <h1 className="font-display text-4xl text-parchment sm:text-5xl">Workbook Library</h1>
+              <h1 className="font-display text-3xl text-parchment sm:text-5xl">Workbook Library</h1>
             </div>
             <p className="max-w-md text-sm leading-7 text-muted-foreground">Guided reflection, practical exercises, and repeatable tools to continue the work after listening.</p>
           </div>
 
-          <article className="rise-in grid gap-10 py-14 [animation-delay:120ms] md:grid-cols-[300px_1fr] lg:gap-16">
-            <img src={workbookCover} alt="A Guide to Emotional Regulation workbook cover" className="aspect-[3/4] w-full max-w-[340px] object-cover shadow-[0_22px_60px_oklch(0_0_0/0.5)] transition-transform duration-500 hover:-translate-y-2" />
+          <article className="rise-in grid gap-8 py-12 [animation-delay:120ms] sm:py-14 md:grid-cols-[300px_1fr] lg:gap-16">
+            <img src={workbookCover} alt="A Guide to Emotional Regulation workbook cover" className="mx-auto aspect-[3/4] w-full max-w-[240px] object-cover shadow-[0_22px_60px_oklch(0_0_0/0.5)] transition-transform duration-500 hover:-translate-y-2 sm:max-w-[300px] md:mx-0 md:max-w-[340px]" />
             <div className="flex flex-col justify-center">
               <div className="mb-6 flex flex-wrap gap-3">
                 <span className="border border-gold/35 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-gold">Available now</span>
