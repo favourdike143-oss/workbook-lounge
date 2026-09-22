@@ -43,12 +43,12 @@ function HomePage() {
 
   return (
     <main className="library-grain min-h-screen overflow-hidden bg-onyx">
-      <section className="relative flex min-h-[88vh] items-center border-b border-gold/15 px-6 py-28">
+      <section className="relative border-b border-gold/15 px-6 pb-16 pt-20 sm:min-h-[88vh] sm:py-28">
         <div className="mx-auto grid w-full max-w-6xl items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="rise-in text-center lg:text-left">
-            <img src={logoUrl} alt="Tube Audiobooks" className="mx-auto mb-7 size-28 rounded-full border border-gold/35 object-cover p-1 lg:mx-0" />
+            <img src={logoUrl} alt="Tube Audiobooks" className="mx-auto mb-6 size-20 rounded-full border border-gold/35 object-cover p-1 sm:size-28 lg:mx-0" />
             <p className="mb-5 font-display text-xs uppercase tracking-[0.28em] text-gold">The companion library</p>
-            <h1 className="font-display text-5xl leading-[1.05] text-gold sm:text-6xl lg:text-7xl">Listen deeply.<br /><span className="text-parchment">Reflect fully.</span></h1>
+            <h1 className="font-display text-4xl leading-[1.08] text-gold sm:text-6xl lg:text-7xl">Listen deeply.<br /><span className="text-parchment">Reflect fully.</span></h1>
             <p className="mx-auto mt-7 max-w-xl text-base leading-8 text-muted-foreground lg:mx-0 lg:text-lg">
               Practical workbooks created to help you turn every self-help audiobook into lasting, personal change.
             </p>
@@ -62,9 +62,9 @@ function HomePage() {
             </div>
           </div>
 
-          <div className="rise-in mx-auto w-full max-w-[360px] [animation-delay:160ms]" aria-roledescription="carousel" aria-label="Workbook releases">
+          <div className="rise-in mx-auto w-full max-w-[280px] [animation-delay:160ms] sm:max-w-[360px]" aria-roledescription="carousel" aria-label="Workbook releases">
             <div
-              className="relative h-[370px] touch-pan-y overflow-hidden border border-gold/20 bg-charcoal/70 sm:h-[400px]"
+              className="relative h-[330px] touch-pan-y overflow-hidden border border-gold/20 bg-charcoal/70 sm:h-[400px]"
               onTouchStart={(event) => { touchStartX.current = event.touches.item(0)?.clientX ?? null; }}
               onTouchEnd={handleTouchEnd}
             >
@@ -74,7 +74,7 @@ function HomePage() {
               >
                 <article className="flex h-full w-full shrink-0 flex-col items-center justify-center px-7 py-6" aria-hidden={activeSlide !== 0}>
                   <p className="mb-4 font-display text-[10px] uppercase tracking-[0.22em] text-gold">Current release</p>
-                  <img src={workbookCover} alt="A Guide to Emotional Regulation companion workbook cover" className="aspect-[3/4] w-[168px] object-cover shadow-[0_18px_45px_oklch(0_0_0/0.48)] sm:w-[185px]" />
+                  <img src={workbookCover} alt="A Guide to Emotional Regulation companion workbook cover" className="aspect-[3/4] w-[140px] object-cover shadow-[0_18px_45px_oklch(0_0_0/0.48)] sm:w-[185px]" />
                   <p className="mt-5 flex items-center gap-2 font-display text-xs text-parchment"><BookOpen className="size-4 text-gold" aria-hidden="true" /> Available now</p>
                 </article>
 
@@ -111,10 +111,10 @@ function HomePage() {
       </section>
 
       <section className="px-6 py-14">
-        <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-7 sm:flex-row sm:items-center">
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-7 text-center sm:flex-row sm:items-center sm:justify-between sm:text-left">
           <div>
             <p className="font-display text-xs uppercase tracking-[0.24em] text-gold">One focused collection</p>
-            <h2 className="mt-2 font-display text-2xl text-parchment">Study alongside the stories you hear.</h2>
+            <h2 className="mt-2 font-display text-2xl text-parchment">Master the lessons you learn.</h2>
           </div>
           <Link to="/workbooks" className="group inline-flex items-center gap-4 text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground transition-colors hover:text-gold">
             Browse workbooks <span className="h-px w-10 bg-gold/50 transition-all group-hover:w-14" />
