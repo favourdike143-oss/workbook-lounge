@@ -3,4 +3,4 @@
 - [x] Replace the home workbook feature with a compact two-slide carousel
 - [x] Add mobile swipe, arrow controls, and slide indicators
 - [x] Verify both slides on mobile and desktop
-- [ ] Make production assets and server output deployable on Netlify
+- [x] Make production assets and server output deployable on Netlify
