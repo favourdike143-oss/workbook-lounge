@@ -4,3 +4,4 @@
 - [x] Add mobile swipe, arrow controls, and slide indicators
 - [x] Verify both slides on mobile and desktop
 - [x] Make production assets and server output deployable on Netlify
+- [x] Add The Mindset for Growth workbook, cover, and download to the library
