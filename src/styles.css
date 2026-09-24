@@ -69,6 +69,12 @@
     background: var(--gold);
     color: var(--onyx);
   }
+  /* Hide Netlify's auto-injected badge on deployed sites */
+  a[href*="netlify"],
+  #netlify-badge,
+  .netlify-badge {
+    display: none !important;
+  }
 }
 
 @utility library-grain {
