@@ -1,13 +1,12 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { useRef, useState } from "react";
-import { ArrowRight, BookOpen, ChevronLeft, ChevronRight, Download } from "lucide-react";
+import { ArrowRight, BookOpen, ChevronLeft, ChevronRight } from "lucide-react";
 
 import emotionalRegulationCover from "@/assets/emotional-regulation-workbook-cover.png";
 import mindsetForGrowthCover from "@/assets/mindset-for-growth-workbook-cover.png";
 import { Button } from "@/components/ui/button";
 
 const logoUrl = "/tube-audiobooks-logo.png";
-const workbookUrl = "/mindset-for-growth-workbook.pdf";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -49,17 +48,14 @@ function HomePage() {
           <div className="rise-in text-center lg:text-left">
             <img src={logoUrl} alt="Tube Audiobooks" className="mx-auto mb-6 size-20 rounded-full border border-gold/35 object-cover p-1 sm:size-28 lg:mx-0" />
             <p className="mb-5 font-display text-xs uppercase tracking-[0.28em] text-gold">The companion library</p>
-            <h1 className="font-display text-4xl leading-[1.08] text-gold sm:text-6xl lg:text-7xl">Listen deeply.<br /><span className="text-parchment">Reflect fully.</span></h1>
+            <h1 className="font-display text-4xl font-bold leading-[1.08] text-gold sm:text-6xl lg:text-7xl">Listen deeply.<br /><span className="text-parchment">Reflect fully.</span></h1>
             <p className="mx-auto mt-7 max-w-xl text-base leading-8 text-muted-foreground lg:mx-0 lg:text-lg">
               Practical workbooks created to help you turn every self-help audiobook into lasting, personal change.
             </p>
-            <div className="mt-9 flex flex-col items-center gap-5 sm:flex-row lg:items-start">
-              <Link to="/workbooks" className="inline-flex h-13 items-center justify-center gap-3 rounded-sm bg-primary px-7 font-display text-xs font-bold uppercase tracking-[0.16em] text-primary-foreground transition-colors hover:bg-gold-muted focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring">
+            <div className="mt-9 flex justify-center lg:justify-start">
+              <Link to="/workbooks" className="inline-flex h-13 items-center justify-center gap-3 rounded-sm bg-primary px-7 font-sans text-sm font-bold text-primary-foreground transition-colors hover:bg-gold-muted focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring">
                 Enter the library <ArrowRight className="size-4" aria-hidden="true" />
               </Link>
-              <a href={workbookUrl} download className="inline-flex h-13 items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground transition-colors hover:text-gold">
-                <Download className="size-4" aria-hidden="true" /> Download latest
-              </a>
             </div>
           </div>
 
