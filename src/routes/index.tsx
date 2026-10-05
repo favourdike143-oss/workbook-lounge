@@ -2,6 +2,7 @@ import { Link, createFileRoute } from "@tanstack/react-router";
 import { useRef, useState } from "react";
 import { ArrowRight, BookOpen, ChevronLeft, ChevronRight } from "lucide-react";
 
+import actionMindsetCover from "@/assets/action-mindset-for-discipline-workbook-cover.png";
 import emotionalRegulationCover from "@/assets/emotional-regulation-workbook-cover.png";
 import mindsetForGrowthCover from "@/assets/mindset-for-growth-workbook-cover.png";
 import { Button } from "@/components/ui/button";
@@ -27,7 +28,7 @@ function HomePage() {
   const touchStartX = useRef<number | null>(null);
 
   const showPrevious = () => setActiveSlide((current) => Math.max(0, current - 1));
-  const showNext = () => setActiveSlide((current) => Math.min(2, current + 1));
+  const showNext = () => setActiveSlide((current) => Math.min(3, current + 1));
 
   const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
     const startX = touchStartX.current;
@@ -71,17 +72,23 @@ function HomePage() {
               >
                 <article className="flex h-full w-full shrink-0 flex-col items-center justify-center px-7 py-6" aria-hidden={activeSlide !== 0}>
                   <p className="mb-4 font-display text-[10px] uppercase tracking-[0.22em] text-gold">Current release</p>
+                  <img src={actionMindsetCover} alt="The Action Mindset for Discipline companion workbook cover" className="aspect-[3/4] w-[140px] object-cover shadow-[0_18px_45px_oklch(0_0_0/0.48)] sm:w-[185px]" />
+                  <p className="mt-5 flex items-center gap-2 font-display text-xs text-parchment"><BookOpen className="size-4 text-gold" aria-hidden="true" /> Available now</p>
+                </article>
+
+                <article className="flex h-full w-full shrink-0 flex-col items-center justify-center px-7 py-6" aria-hidden={activeSlide !== 1}>
+                  <p className="mb-4 font-display text-[10px] uppercase tracking-[0.22em] text-gold">In the library</p>
                   <img src={mindsetForGrowthCover} alt="The Mindset for Growth companion workbook cover" className="aspect-[3/4] w-[140px] object-cover shadow-[0_18px_45px_oklch(0_0_0/0.48)] sm:w-[185px]" />
                   <p className="mt-5 flex items-center gap-2 font-display text-xs text-parchment"><BookOpen className="size-4 text-gold" aria-hidden="true" /> Available now</p>
                 </article>
 
-                <article className="flex h-full w-full shrink-0 flex-col justify-center px-8 py-8" aria-hidden={activeSlide !== 1}>
-                  <p className="mb-4 text-center font-display text-[10px] uppercase tracking-[0.22em] text-gold">In the library</p>
-                  <img src={emotionalRegulationCover} alt="A Guide to Emotional Regulation companion workbook cover" className="mx-auto aspect-[3/4] w-[140px] object-cover shadow-[0_18px_45px_oklch(0_0_0/0.48)] sm:w-[185px]" />
-                  <p className="mt-5 flex items-center justify-center gap-2 font-display text-xs text-parchment"><BookOpen className="size-4 text-gold" aria-hidden="true" /> Available now</p>
+                <article className="flex h-full w-full shrink-0 flex-col items-center justify-center px-7 py-6" aria-hidden={activeSlide !== 2}>
+                  <p className="mb-4 font-display text-[10px] uppercase tracking-[0.22em] text-gold">In the library</p>
+                  <img src={emotionalRegulationCover} alt="A Guide to Emotional Regulation companion workbook cover" className="aspect-[3/4] w-[140px] object-cover shadow-[0_18px_45px_oklch(0_0_0/0.48)] sm:w-[185px]" />
+                  <p className="mt-5 flex items-center gap-2 font-display text-xs text-parchment"><BookOpen className="size-4 text-gold" aria-hidden="true" /> Available now</p>
                 </article>
 
-                <article className="flex h-full w-full shrink-0 flex-col justify-center px-8 py-8" aria-hidden={activeSlide !== 2}>
+                <article className="flex h-full w-full shrink-0 flex-col justify-center px-8 py-8" aria-hidden={activeSlide !== 3}>
                   <p className="font-display text-[10px] uppercase tracking-[0.22em] text-gold">Next release</p>
                   <h2 className="mt-4 font-display text-2xl leading-snug text-parchment">The next companion workbook</h2>
                   <p className="mt-3 text-sm leading-6 text-muted-foreground">A new guided workbook is currently taking shape.</p>
@@ -101,7 +108,7 @@ function HomePage() {
                 <ChevronLeft aria-hidden="true" />
               </Button>
               <div className="flex justify-center gap-2" role="group" aria-label="Choose slide">
-                {[0, 1, 2].map((slide) => (
+                {[0, 1, 2, 3].map((slide) => (
                   <Button key={slide} type="button" size="icon" className={`size-2 rounded-full p-0 ${activeSlide === slide ? "bg-primary" : "bg-muted hover:bg-gold-muted"}`} onClick={() => setActiveSlide(slide)} aria-label={`Go to slide ${slide + 1}`} aria-current={activeSlide === slide ? "true" : undefined} />
                 ))}
               </div>

@@ -1,10 +1,12 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { ArrowLeft, Download, FileText } from "lucide-react";
 
+import actionMindsetCover from "@/assets/action-mindset-for-discipline-workbook-cover.png";
 import emotionalRegulationCover from "@/assets/emotional-regulation-workbook-cover.png";
 import mindsetForGrowthCover from "@/assets/mindset-for-growth-workbook-cover.png";
 
 const logoUrl = "/tube-audiobooks-logo.png";
+const actionMindsetUrl = "/action-mindset-for-discipline-workbook.pdf";
 const emotionalRegulationUrl = "/emotional-regulation-workbook.pdf";
 const mindsetForGrowthUrl = "/mindset-for-growth-workbook.pdf";
 
@@ -14,7 +16,7 @@ export const Route = createFileRoute("/workbooks")({
       { title: "Workbook Library — Tube Audiobooks" },
       { name: "description", content: "Browse and download companion workbooks for Tube Audiobooks releases." },
       { property: "og:title", content: "Workbook Library — Tube Audiobooks" },
-      { property: "og:description", content: "Download The Mindset for Growth and Emotional Regulation companion workbooks." },
+      { property: "og:description", content: "Download The Action Mindset for Discipline, The Mindset for Growth, and A Guide to Emotional Regulation companion workbooks." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -48,10 +50,28 @@ function WorkbooksPage() {
           </div>
 
           <article className="rise-in grid gap-8 py-12 [animation-delay:120ms] sm:py-14 md:grid-cols-[300px_1fr] lg:gap-16">
-            <img src={mindsetForGrowthCover} alt="The Mindset for Growth companion workbook cover" className="mx-auto aspect-[3/4] w-full max-w-[240px] object-cover shadow-[0_22px_60px_oklch(0_0_0/0.5)] transition-transform duration-500 hover:-translate-y-2 sm:max-w-[300px] md:mx-0 md:max-w-[340px]" />
+            <img src={actionMindsetCover} alt="The Action Mindset for Discipline companion workbook cover" className="mx-auto aspect-[3/4] w-full max-w-[240px] object-cover shadow-[0_22px_60px_oklch(0_0_0/0.5)] transition-transform duration-500 hover:-translate-y-2 sm:max-w-[300px] md:mx-0 md:max-w-[340px]" />
             <div className="flex flex-col justify-center">
               <div className="mb-6 flex flex-wrap gap-3">
                 <span className="border border-gold/35 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-gold">New release</span>
+                <span className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground"><FileText className="size-4" /> PDF workbook</span>
+              </div>
+              <h2 className="max-w-2xl font-display text-3xl leading-tight text-gold sm:text-4xl">The Action Mindset for Discipline</h2>
+              <p className="mt-2 font-display text-sm uppercase tracking-[0.15em] text-muted-foreground">Ancient Wisdom</p>
+              <p className="mt-7 max-w-2xl text-base leading-8 text-muted-foreground">
+                Train five ancient disciplines into daily action—Stoic austerity and the nightly audit, Musashi's daily subtraction, Bushido mental rehearsal, Aristotelian micro-promises and identity building, and Wu Wei emotional centering—with guided exercises, practice logs, and 30-day trackers.
+              </p>
+              <a href={actionMindsetUrl} download="The-Action-Mindset-for-Discipline-Workbook.pdf" className="mt-9 inline-flex h-13 w-fit items-center justify-center gap-3 rounded-sm bg-primary px-7 font-display text-xs font-bold uppercase tracking-[0.16em] text-primary-foreground transition-colors hover:bg-gold-muted focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring">
+                <Download className="size-4" aria-hidden="true" /> Download workbook
+              </a>
+            </div>
+          </article>
+
+          <article className="rise-in grid gap-8 border-t border-gold/15 py-12 [animation-delay:180ms] sm:py-14 md:grid-cols-[300px_1fr] lg:gap-16">
+            <img src={mindsetForGrowthCover} alt="The Mindset for Growth companion workbook cover" className="mx-auto aspect-[3/4] w-full max-w-[240px] object-cover shadow-[0_22px_60px_oklch(0_0_0/0.5)] transition-transform duration-500 hover:-translate-y-2 sm:max-w-[300px] md:mx-0 md:max-w-[340px]" />
+            <div className="flex flex-col justify-center">
+              <div className="mb-6 flex flex-wrap gap-3">
+                <span className="border border-gold/35 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-gold">Available now</span>
                 <span className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-muted-foreground"><FileText className="size-4" /> PDF workbook</span>
               </div>
               <h2 className="max-w-2xl font-display text-3xl leading-tight text-gold sm:text-4xl">The Mindset for Growth</h2>
