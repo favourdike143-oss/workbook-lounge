@@ -1,10 +1,12 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
 import { ArrowLeft, Download, FileText } from "lucide-react";
 
+import actionMindsetCover from "@/assets/action-mindset-for-discipline-workbook-cover.png";
 import emotionalRegulationCover from "@/assets/emotional-regulation-workbook-cover.png";
 import mindsetForGrowthCover from "@/assets/mindset-for-growth-workbook-cover.png";
 
 const logoUrl = "/tube-audiobooks-logo.png";
+const actionMindsetUrl = "/action-mindset-for-discipline-workbook.pdf";
 const emotionalRegulationUrl = "/emotional-regulation-workbook.pdf";
 const mindsetForGrowthUrl = "/mindset-for-growth-workbook.pdf";
 
@@ -14,7 +16,7 @@ export const Route = createFileRoute("/workbooks")({
       { title: "Workbook Library — Tube Audiobooks" },
       { name: "description", content: "Browse and download companion workbooks for Tube Audiobooks releases." },
       { property: "og:title", content: "Workbook Library — Tube Audiobooks" },
-      { property: "og:description", content: "Download The Mindset for Growth and Emotional Regulation companion workbooks." },
+      { property: "og:description", content: "Download The Action Mindset for Discipline, The Mindset for Growth, and A Guide to Emotional Regulation companion workbooks." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
