@@ -2,6 +2,7 @@ import { Link, createFileRoute } from "@tanstack/react-router";
 import { useRef, useState } from "react";
 import { ArrowRight, BookOpen, ChevronLeft, ChevronRight } from "lucide-react";
 
+import actionMindsetCover from "@/assets/action-mindset-for-discipline-workbook-cover.png";
 import emotionalRegulationCover from "@/assets/emotional-regulation-workbook-cover.png";
 import mindsetForGrowthCover from "@/assets/mindset-for-growth-workbook-cover.png";
 import { Button } from "@/components/ui/button";
@@ -27,7 +28,7 @@ function HomePage() {
   const touchStartX = useRef<number | null>(null);
 
   const showPrevious = () => setActiveSlide((current) => Math.max(0, current - 1));
-  const showNext = () => setActiveSlide((current) => Math.min(2, current + 1));
+  const showNext = () => setActiveSlide((current) => Math.min(3, current + 1));
 
   const handleTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
     const startX = touchStartX.current;
