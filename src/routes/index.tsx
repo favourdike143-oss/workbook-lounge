@@ -72,14 +72,14 @@ function HomePage() {
               >
                 <article className="flex h-full w-full shrink-0 flex-col items-center justify-center px-7 py-6" aria-hidden={activeSlide !== 0}>
                   <p className="mb-4 font-display text-[10px] uppercase tracking-[0.22em] text-gold">Current release</p>
-                  <img src={mindsetForGrowthCover} alt="The Mindset for Growth companion workbook cover" className="aspect-[3/4] w-[140px] object-cover shadow-[0_18px_45px_oklch(0_0_0/0.48)] sm:w-[185px]" />
+                  <img src={actionMindsetCover} alt="The Action Mindset for Discipline companion workbook cover" className="aspect-[3/4] w-[140px] object-cover shadow-[0_18px_45px_oklch(0_0_0/0.48)] sm:w-[185px]" />
                   <p className="mt-5 flex items-center gap-2 font-display text-xs text-parchment"><BookOpen className="size-4 text-gold" aria-hidden="true" /> Available now</p>
                 </article>
 
-                <article className="flex h-full w-full shrink-0 flex-col justify-center px-8 py-8" aria-hidden={activeSlide !== 1}>
-                  <p className="mb-4 text-center font-display text-[10px] uppercase tracking-[0.22em] text-gold">In the library</p>
-                  <img src={emotionalRegulationCover} alt="A Guide to Emotional Regulation companion workbook cover" className="mx-auto aspect-[3/4] w-[140px] object-cover shadow-[0_18px_45px_oklch(0_0_0/0.48)] sm:w-[185px]" />
-                  <p className="mt-5 flex items-center justify-center gap-2 font-display text-xs text-parchment"><BookOpen className="size-4 text-gold" aria-hidden="true" /> Available now</p>
+                <article className="flex h-full w-full shrink-0 flex-col items-center justify-center px-7 py-6" aria-hidden={activeSlide !== 1}>
+                  <p className="mb-4 font-display text-[10px] uppercase tracking-[0.22em] text-gold">In the library</p>
+                  <img src={mindsetForGrowthCover} alt="The Mindset for Growth companion workbook cover" className="aspect-[3/4] w-[140px] object-cover shadow-[0_18px_45px_oklch(0_0_0/0.48)] sm:w-[185px]" />
+                  <p className="mt-5 flex items-center gap-2 font-display text-xs text-parchment"><BookOpen className="size-4 text-gold" aria-hidden="true" /> Available now</p>
                 </article>
 
                 <article className="flex h-full w-full shrink-0 flex-col justify-center px-8 py-8" aria-hidden={activeSlide !== 2}>
