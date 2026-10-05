@@ -8,3 +8,4 @@
 - [x] Bolden the home heading and clarify the library button font
 - [x] Remove the home page's Download latest link
 - [x] Add the CPA Grid website lock script across both pages
+- [x] Add The Action Mindset for Discipline workbook, cover, and download to the library
