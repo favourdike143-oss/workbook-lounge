@@ -82,7 +82,13 @@ function HomePage() {
                   <p className="mt-5 flex items-center gap-2 font-display text-xs text-parchment"><BookOpen className="size-4 text-gold" aria-hidden="true" /> Available now</p>
                 </article>
 
-                <article className="flex h-full w-full shrink-0 flex-col justify-center px-8 py-8" aria-hidden={activeSlide !== 2}>
+                <article className="flex h-full w-full shrink-0 flex-col items-center justify-center px-7 py-6" aria-hidden={activeSlide !== 2}>
+                  <p className="mb-4 font-display text-[10px] uppercase tracking-[0.22em] text-gold">In the library</p>
+                  <img src={emotionalRegulationCover} alt="A Guide to Emotional Regulation companion workbook cover" className="aspect-[3/4] w-[140px] object-cover shadow-[0_18px_45px_oklch(0_0_0/0.48)] sm:w-[185px]" />
+                  <p className="mt-5 flex items-center gap-2 font-display text-xs text-parchment"><BookOpen className="size-4 text-gold" aria-hidden="true" /> Available now</p>
+                </article>
+
+                <article className="flex h-full w-full shrink-0 flex-col justify-center px-8 py-8" aria-hidden={activeSlide !== 3}>
                   <p className="font-display text-[10px] uppercase tracking-[0.22em] text-gold">Next release</p>
                   <h2 className="mt-4 font-display text-2xl leading-snug text-parchment">The next companion workbook</h2>
                   <p className="mt-3 text-sm leading-6 text-muted-foreground">A new guided workbook is currently taking shape.</p>
@@ -102,7 +108,7 @@ function HomePage() {
                 <ChevronLeft aria-hidden="true" />
               </Button>
               <div className="flex justify-center gap-2" role="group" aria-label="Choose slide">
-                {[0, 1, 2].map((slide) => (
+                {[0, 1, 2, 3].map((slide) => (
                   <Button key={slide} type="button" size="icon" className={`size-2 rounded-full p-0 ${activeSlide === slide ? "bg-primary" : "bg-muted hover:bg-gold-muted"}`} onClick={() => setActiveSlide(slide)} aria-label={`Go to slide ${slide + 1}`} aria-current={activeSlide === slide ? "true" : undefined} />
                 ))}
               </div>
